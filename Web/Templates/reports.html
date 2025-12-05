@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relatórios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Relatórios Financeiros</h1>
+
+    <p><strong>Total de Receitas:</strong> {{ total_r }} €</p>
+    <p><strong>Total de Despesas:</strong> {{ total_d }} €</p>
+    <p><strong>Saldo Atual:</strong> {{ saldo }} €</p>
+
+    <hr>
+
+    <h2>Despesas por Categoria</h2>
+    <canvas id="despesasChart"></canvas>
+
+    <script>
+        let labels = {{ labels|tojson }};
+        let values = {{ values|tojson }};
+
+        let ctx = document.getElementById('despesasChart').getContext('2d');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Despesas (€)',
+                    data: values,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+  <div class="nav">
+    <a class="menu-btn" href="/dashboard">⬅ Voltar ao painel</a>
+  </div>
+<script>
+function toggleDark(){
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</div>
+</body>
+<div class="navbar">
+    <h2>Sistema Financeiro</h2>
+
+    <div>
+        <a href="/dashboard">Início</a>
+        <span class="dark-toggle" onclick="toggleDark()">🌙</span>
+        <a href="/">Sair</a>
+    </div>
+</div>
+
+</html>

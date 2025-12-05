@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerir Categorias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Gerir Categorias</h1>
+
+    <h2>Categorias existentes</h2>
+    <ul>
+        {% for c in categorias %}
+        <li>{{ c.nome }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Adicionar nova categoria</h2>
+    <form method="POST">
+        <label>Nome da categoria:</label>
+        <input type="text" name="nome">
+        <button type="submit">Adicionar</button>
+    </form>
+
+   <div class="nav">
+    <a class="menu-btn" href="/dashboard">⬅ Voltar ao painel</a>
+</div>
+<script>
+function toggleDark(){
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</div>
+</body>
+<div class="navbar">
+    <h2>Sistema Financeiro</h2>
+
+    <div>
+        <a href="/dashboard">Início</a>
+        <span class="dark-toggle" onclick="toggleDark()">🌙</span>
+        <a href="/">Sair</a>
+    </div>
+</div>
+
+</html>

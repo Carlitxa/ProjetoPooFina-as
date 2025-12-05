@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestão Financeira</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>Sistema Financeiro</h2>
+
+    <div>
+        <span class="dark-toggle" onclick="toggleDark()">🌙</span>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Bem-vindo ao Sistema de Gestão Financeira</h1>
+
+    <p>Faça login ou crie uma conta para começar a gerir as suas finanças.</p>
+
+    <br><br>
+
+    <a class="menu-btn btn-green" href="/login">🔐 Login</a>
+    <a class="menu-btn" href="/register">✨ Criar Conta</a>
+</div>
+
+<script>
+function toggleDark(){
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>

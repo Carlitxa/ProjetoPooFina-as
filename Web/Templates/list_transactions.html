@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Transações</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Transações</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Valor</th>
+            <th>Data</th>
+            <th>Categoria</th>
+            <th>Tipo</th>
+            <th>Ações</th>
+        </tr>
+        {% for t in transacoes %}
+        <tr>
+            <td>{{ t.id }}</td>
+            <td>{{ t.descricao }}</td>
+            <td>{{ t.valor }}</td>
+            <td>{{ t.data }}</td>
+            <td>{{ t.categoria.nome }}</td>
+            <td>{{ t.tipo }}</td>
+            <td>
+            <a class="btn-edit" href="/edit_transaction/{{ t.id }}">✏ Editar</a>
+<a class="btn-delete" href="/delete_transaction/{{ t.id }}"
+   onclick="return confirm('Deseja mesmo eliminar esta transação? 🗑');">
+   🗑 Eliminar
+</a>
+
+
+
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div class="nav">
+    <a class="menu-btn" href="/dashboard">⬅ Voltar ao painel</a>
+</div>
+<script>
+function toggleDark(){
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</div>
+</body>
+<div class="navbar">
+    <h2>Sistema Financeiro</h2>
+
+    <div>
+        <a href="/dashboard">Início</a>
+        <span class="dark-toggle" onclick="toggleDark()">🌙</span>
+        <a href="/">Sair</a>
+    </div>
+</div>
+
+</html>

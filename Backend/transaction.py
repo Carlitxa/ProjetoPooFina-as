@@ -4,8 +4,5 @@ class Transaction:
         self.descricao = descricao
         self.valor = valor
         self.data = data
-        self.tipo = tipo
+        self.tipo = tipo      # "receita" ou "despesa"
         self.categoria = categoria
-
-    def validar_valor(self):
-        pass

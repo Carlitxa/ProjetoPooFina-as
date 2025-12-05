@@ -1,0 +1,49 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "nome": "carla",
+            "email": "carlapppp14@gmail.com",
+            "password": "1234teste",
+            "perfil": "user"
+        }
+    ],
+    "categories": [
+        {
+            "nome": "Alimentação"
+        },
+        {
+            "nome": "Transportes"
+        },
+        {
+            "nome": "Lazer"
+        },
+        {
+            "nome": "Saúde"
+        },
+        {
+            "nome": "Outros"
+        },
+        {
+            "nome": "Casa"
+        }
+    ],
+    "transactions": [
+        {
+            "id": 1,
+            "descricao": "peixe",
+            "valor": 10.5,
+            "data": "2025-12-05",
+            "tipo": "receita",
+            "categoria": "Alimentação"
+        },
+        {
+            "id": 3,
+            "descricao": "carro",
+            "valor": 50.0,
+            "data": "2025-12-05",
+            "tipo": "despesa",
+            "categoria": "Transportes"
+        }
+    ]
+}
