@@ -20,6 +20,27 @@
             "email": "carlapppp14@gmail.com",
             "password": "1234teste",
             "perfil": "user"
+        },
+        {
+            "id": 4,
+            "nome": "carla",
+            "email": "carlapppp14@gmail.com",
+            "password": "1234teste",
+            "perfil": "user"
+        },
+        {
+            "id": 5,
+            "nome": "carla",
+            "email": "carlapppp14@gmail.com",
+            "password": "1234teste",
+            "perfil": "user"
+        },
+        {
+            "id": 6,
+            "nome": "carla",
+            "email": "carlapppp14@gmail.com",
+            "password": "1234teste",
+            "perfil": "user"
         }
     ],
     "categories": [
@@ -43,6 +64,12 @@
         },
         {
             "nome": "Salário"
+        },
+        {
+            "nome": "Agua"
+        },
+        {
+            "nome": "Planta"
         }
     ],
     "transactions": [
@@ -77,6 +104,14 @@
             "data": "2025-12-15",
             "tipo": "despesa",
             "categoria": "Saúde"
+        },
+        {
+            "id": 6,
+            "descricao": "euromilhoes",
+            "valor": 100.0,
+            "data": "2025-12-15",
+            "tipo": "receita",
+            "categoria": "Outros"
         }
     ]
 }
