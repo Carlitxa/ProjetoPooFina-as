@@ -5,46 +5,40 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-<div class="container">
-    <h1>Painel de Utilizador</h1>
 
-    <p>Escolha uma opção:</p>
+<div class="navbar">
+    <h2>Sistema Financeiro</h2>
+    <span class="dark-toggle" onclick="toggleDark()">🌙</span>
+</div>
 
-    <div class="nav">
-    <a class="menu-btn" href="/add_transaction">➕ Adicionar Transação</a>
-    <a class="menu-btn" href="/list_transactions">📌 Listar Transações</a>
-    <a class="menu-btn" href="/categories">📂 Categorias</a>
-    <a class="menu-btn" href="/reports">📊 Relatórios</a>
+<div class="page">
+  <div class="card">
+    <h2>📊 Painel de Utilizador</h2>
+
+    <div class="dashboard-grid">
+        <a href="/add_transaction" class="dashboard-card">➕<br>Adicionar Transação</a>
+        <a href="/list_transactions" class="dashboard-card">📋<br>Transações</a>
+        <a href="/categories" class="dashboard-card">🗂<br>Categorias</a>
+        <a href="/reports" class="dashboard-card">📈<br>Relatórios</a>
     </div>
 
+    <br>
+    <a href="/" class="btn btn-danger">🚪 Terminar Sessão</a>
+  </div>
+</div>
 
-    <div class="nav">
-    <a class="menu-btn" href="/">🔙 Terminar sessão</a>
-    </div>
 <script>
 function toggleDark(){
     document.body.classList.toggle("dark");
+    localStorage.setItem("darkMode",
+        document.body.classList.contains("dark") ? "on" : "off");
+}
+window.onload=function(){
+ if(localStorage.getItem("darkMode")==="on"){
+   document.body.classList.add("dark");
+ }
 }
 </script>
-<div class="navbar">
-    <h2>Sistema Financeiro</h2>
 
-    <div>
-        <a href="/dashboard">Início</a>
-        <span class="dark-toggle" onclick="toggleDark()">🌙</span>
-        <a href="/">Sair</a>
-    </div>
-</div>
-</div>
 </body>
-<div class="navbar">
-    <h2>Sistema Financeiro</h2>
-
-    <div>
-        <a href="/dashboard">Início</a>
-        <span class="dark-toggle" onclick="toggleDark()">🌙</span>
-        <a href="/">Sair</a>
-    </div>
-</div>
-
 </html>

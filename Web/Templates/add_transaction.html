@@ -5,51 +5,55 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-<div class="container">
-    <h1>Adicionar Transação</h1>
 
-    <form method="POST">
-        <label>Descrição:</label>
-        <input type="text" name="descricao">
+<div class="navbar">
+    <h2>Sistema Financeiro</h2>
+    <span class="dark-toggle" onclick="toggleDark()">🌙</span>
+</div>
 
-        <label>Valor:</label>
-        <input type="number" step="0.01" name="valor">
+<div class="page">
+  <div class="card">
+    <h2>➕ Adicionar Transação</h2>
 
-        <label>Categoria:</label>
+    <form method="post">
+        <label>Descrição</label>
+        <input type="text" name="descricao" required>
+
+        <label>Valor</label>
+        <input type="number" step="0.01" name="valor" required>
+
+        <label>Categoria</label>
         <select name="categoria">
             {% for c in categorias %}
             <option value="{{ c.nome }}">{{ c.nome }}</option>
             {% endfor %}
         </select>
 
-        <label>Tipo:</label>
+        <label>Tipo</label>
         <select name="tipo">
             <option value="receita">Receita</option>
             <option value="despesa">Despesa</option>
         </select>
 
-        <button type="submit">Guardar</button>
+        <br><br>
+        <button class="btn btn-success">💾 Guardar</button>
+        <a href="/dashboard" class="btn btn-secondary">Cancelar</a>
     </form>
-
-  <button class="btn-green" type="submit">💾 Guardar</button>
-<a class="menu-btn" href="/dashboard">⬅ Voltar</a>
+  </div>
+</div>
 
 <script>
 function toggleDark(){
     document.body.classList.toggle("dark");
+    localStorage.setItem("darkMode",
+      document.body.classList.contains("dark") ? "on" : "off");
+}
+window.onload=function(){
+ if(localStorage.getItem("darkMode")==="on"){
+   document.body.classList.add("dark");
+ }
 }
 </script>
 
-</div>
 </body>
-<div class="navbar">
-    <h2>Sistema Financeiro</h2>
-
-    <div>
-        <a href="/dashboard">Início</a>
-        <span class="dark-toggle" onclick="toggleDark()">🌙</span>
-        <a href="/">Sair</a>
-    </div>
-</div>
-
 </html>

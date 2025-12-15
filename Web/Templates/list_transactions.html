@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lista de Transações</title>
+    <title>Transações</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-<div class="container">
-    <h1>Transações</h1>
+
+<div class="navbar">
+    <h2>Sistema Financeiro</h2>
+    <span class="dark-toggle" onclick="toggleDark()">🌙</span>
+</div>
+
+<div class="page">
+  <div class="card">
+    <h2>📋 Lista de Transações</h2>
 
     <table>
         <tr>
@@ -22,43 +29,40 @@
         <tr>
             <td>{{ t.id }}</td>
             <td>{{ t.descricao }}</td>
-            <td>{{ t.valor }}</td>
+            <td class="{{ 'valor-positivo' if t.tipo == 'receita' else 'valor-negativo' }}">
+                {{ t.valor }} €
+            </td>
             <td>{{ t.data }}</td>
             <td>{{ t.categoria.nome }}</td>
             <td>{{ t.tipo }}</td>
             <td>
-            <a class="btn-edit" href="/edit_transaction/{{ t.id }}">✏ Editar</a>
-<a class="btn-delete" href="/delete_transaction/{{ t.id }}"
-   onclick="return confirm('Deseja mesmo eliminar esta transação? 🗑');">
-   🗑 Eliminar
-</a>
-
-
-
+                <a href="/edit_transaction/{{ t.id }}" class="btn btn-primary">✏️ Editar</a>
+                <a href="/delete_transaction/{{ t.id }}" class="btn btn-danger"
+                   onclick="return confirm('Eliminar esta transação?');">
+                   🗑 Eliminar
+                </a>
             </td>
         </tr>
         {% endfor %}
     </table>
 
-    <div class="nav">
-    <a class="menu-btn" href="/dashboard">⬅ Voltar ao painel</a>
+    <br>
+    <a href="/dashboard" class="btn btn-secondary">⬅ Voltar</a>
+  </div>
 </div>
+
 <script>
 function toggleDark(){
     document.body.classList.toggle("dark");
+    localStorage.setItem("darkMode",
+      document.body.classList.contains("dark") ? "on" : "off");
+}
+window.onload=function(){
+ if(localStorage.getItem("darkMode")==="on"){
+   document.body.classList.add("dark");
+ }
 }
 </script>
 
-</div>
 </body>
-<div class="navbar">
-    <h2>Sistema Financeiro</h2>
-
-    <div>
-        <a href="/dashboard">Início</a>
-        <span class="dark-toggle" onclick="toggleDark()">🌙</span>
-        <a href="/">Sair</a>
-    </div>
-</div>
-
 </html>

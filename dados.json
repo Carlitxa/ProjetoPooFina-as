@@ -6,6 +6,20 @@
             "email": "carlapppp14@gmail.com",
             "password": "1234teste",
             "perfil": "user"
+        },
+        {
+            "id": 2,
+            "nome": "carla",
+            "email": "carlapppp14@gmail.com",
+            "password": "1234teste",
+            "perfil": "user"
+        },
+        {
+            "id": 3,
+            "nome": "carla",
+            "email": "carlapppp14@gmail.com",
+            "password": "1234teste",
+            "perfil": "user"
         }
     ],
     "categories": [
@@ -26,17 +40,12 @@
         },
         {
             "nome": "Casa"
+        },
+        {
+            "nome": "Salário"
         }
     ],
     "transactions": [
-        {
-            "id": 1,
-            "descricao": "peixe",
-            "valor": 10.5,
-            "data": "2025-12-05",
-            "tipo": "receita",
-            "categoria": "Alimentação"
-        },
         {
             "id": 3,
             "descricao": "carro",
@@ -44,6 +53,30 @@
             "data": "2025-12-05",
             "tipo": "despesa",
             "categoria": "Transportes"
+        },
+        {
+            "id": 3,
+            "descricao": "trabalho hsdghf",
+            "valor": 875.0,
+            "data": "2025-12-15",
+            "tipo": "receita",
+            "categoria": "Salário"
+        },
+        {
+            "id": 3,
+            "descricao": "luz",
+            "valor": 20.0,
+            "data": "2025-12-15",
+            "tipo": "despesa",
+            "categoria": "Casa"
+        },
+        {
+            "id": 4,
+            "descricao": "medico",
+            "valor": 90.0,
+            "data": "2025-12-15",
+            "tipo": "despesa",
+            "categoria": "Saúde"
         }
     ]
 }

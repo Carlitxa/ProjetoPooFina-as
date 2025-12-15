@@ -5,17 +5,24 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-<div class="container">
-    <h1>Editar Transação</h1>
 
-    <form method="POST">
-        <label>Descrição:</label>
-        <input type="text" name="descricao" value="{{ transacao.descricao }}">
+<div class="navbar">
+    <h2>Sistema Financeiro</h2>
+    <span class="dark-toggle" onclick="toggleDark()">🌙</span>
+</div>
 
-        <label>Valor:</label>
-        <input type="number" step="0.01" name="valor" value="{{ transacao.valor }}">
+<div class="page">
+  <div class="card">
+    <h2>✏️ Editar Transação</h2>
 
-        <label>Categoria:</label>
+    <form method="post">
+        <label>Descrição</label>
+        <input type="text" name="descricao" value="{{ transacao.descricao }}" required>
+
+        <label>Valor</label>
+        <input type="number" step="0.01" name="valor" value="{{ transacao.valor }}" required>
+
+        <label>Categoria</label>
         <select name="categoria">
             {% for c in categorias %}
             <option value="{{ c.nome }}" {% if c.nome == transacao.categoria.nome %}selected{% endif %}>
@@ -24,36 +31,31 @@
             {% endfor %}
         </select>
 
-        <label>Tipo:</label>
+        <label>Tipo</label>
         <select name="tipo">
-            <option value="receita" {% if transacao.tipo == "receita" %}selected{% endif %}>Receita</option>
-            <option value="despesa" {% if transacao.tipo == "despesa" %}selected{% endif %}>Despesa</option>
+            <option value="receita" {% if transacao.tipo == 'receita' %}selected{% endif %}>Receita</option>
+            <option value="despesa" {% if transacao.tipo == 'despesa' %}selected{% endif %}>Despesa</option>
         </select>
 
-       <button class="btn-green" type="submit">✔ Guardar alterações</button>
-<a class="menu-btn" href="/list_transactions">⬅ Cancelar</a>
-
+        <br><br>
+        <button class="btn btn-success">💾 Guardar</button>
+        <a href="/list_transactions" class="btn btn-secondary">Cancelar</a>
     </form>
+  </div>
+</div>
 
-    <div class="nav">
-        <a href="/list_transactions">Voltar à lista</a>
-    </div>
-    <script>
+<script>
 function toggleDark(){
     document.body.classList.toggle("dark");
+    localStorage.setItem("darkMode",
+      document.body.classList.contains("dark") ? "on" : "off");
+}
+window.onload=function(){
+ if(localStorage.getItem("darkMode")==="on"){
+   document.body.classList.add("dark");
+ }
 }
 </script>
 
-</div>
 </body>
-<div class="navbar">
-    <h2>Sistema Financeiro</h2>
-
-    <div>
-        <a href="/dashboard">Início</a>
-        <span class="dark-toggle" onclick="toggleDark()">🌙</span>
-        <a href="/">Sair</a>
-    </div>
-</div>
-
 </html>
