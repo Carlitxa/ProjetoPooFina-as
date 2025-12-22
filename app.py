@@ -2,6 +2,13 @@ from flask import Flask, render_template, request, redirect, url_for
 from Backend.finance_manager import FinanceManager
 from Backend.user import User
 
+"""
+Aplicação web para gestão de finanças pessoais.
+Permite gerir utilizadores, transações, categorias e relatórios.
+Desenvolvida no âmbito da unidade curricular de Programação Orientada a Objetos.
+"""
+
+
 app = Flask(
     __name__,
     template_folder="Web/Templates",

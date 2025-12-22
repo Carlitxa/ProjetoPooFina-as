@@ -41,6 +41,13 @@
             "email": "carlapppp14@gmail.com",
             "password": "1234teste",
             "perfil": "user"
+        },
+        {
+            "id": 7,
+            "nome": "carla",
+            "email": "carlapppp14@gmail.com",
+            "password": "1234teste",
+            "perfil": "user"
         }
     ],
     "categories": [
